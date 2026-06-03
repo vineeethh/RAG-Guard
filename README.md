@@ -1,4 +1,4 @@
-# PromptShiels 🛡️
+# Guard RAG 🛡️
 
 ## A Hybrid Tiered Defense System Against Indirect Prompt Injection in Retrieval-Augmented Generation
 
@@ -10,11 +10,11 @@ PromptShiels protects RAG systems from indirect prompt injection attacks using a
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        PromptShiels                              │
+│                        Guard RAG                                │
 ├─────────────────────────────────────────────────────────────────┤
-│  📥 Retrieved Documents (Top-K)                                  │
-│         │                                                        │
-│         ▼                                                        │
+│  📥 Retrieved Documents (Top-K)                                 │
+│         │                                                       │
+│         ▼                                                       │
 │  ┌─────────────────────────────────────┐                        │
 │  │  TIER 1: "Speed Trap"               │                        │
 │  │  Dynamic Outlier Filtration         │                        │
@@ -22,8 +22,8 @@ PromptShiels protects RAG systems from indirect prompt injection attacks using a
 │  │  • Silhouette-based K Selection     │                        │
 │  │  • Majority Cluster Filtering       │                        │
 │  └─────────────────────────────────────┘                        │
-│         │ (Survivors)                                            │
-│         ▼                                                        │
+│         │ (Survivors)                                           │
+│         ▼                                                       │
 │  ┌─────────────────────────────────────┐                        │
 │  │  TIER 2: "Brain Scan"               │                        │
 │  │  Latent Activation Analysis         │                        │
@@ -31,8 +31,8 @@ PromptShiels protects RAG systems from indirect prompt injection attacks using a
 │  │  • Activation Vector Extraction     │                        │
 │  │  • Logistic Regression Classifier   │                        │
 │  └─────────────────────────────────────┘                        │
-│         │ (Safe Documents)                                       │
-│         ▼                                                        │
+│         │ (Safe Documents)                                      │
+│         ▼                                                       │
 │  📤 Clean Output to LLM                                         │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -42,13 +42,13 @@ PromptShiels protects RAG systems from indirect prompt injection attacks using a
 ## 📁 Project Structure
 
 ```
-PromptShiels/
+GuardRAG/
 ├── config/
 │   ├── __init__.py          # Configuration loader
 │   └── config.yaml          # Main configuration file
 ├── src/
 │   ├── __init__.py          # Main package exports
-│   ├── promptshield.py      # Main PromptShiels class
+│   ├── guardrag.py      # Main PromptShiels class
 │   ├── tier1/
 │   │   ├── __init__.py
 │   │   └── outlier_filter.py  # Dynamic Outlier Filtration
@@ -64,7 +64,7 @@ PromptShiels/
 ├── app/
 │   └── streamlit_app.py     # Dashboard UI
 ├── notebooks/
-│   └── PromptShield_Training.ipynb  # Colab training guide
+│   └── GuardRag_Training.ipynb  # Colab training guide
 ├── models/                  # Trained models (after training)
 ├── data/                    # Datasets
 ├── requirements.txt
@@ -102,7 +102,7 @@ The demo mode uses Tier 1 clustering (fully functional) and a heuristic simulati
 
 For complete Tier 2 functionality, you need to train the activation classifier:
 
-1. Open `notebooks/PromptShield_Training.ipynb` in Google Colab
+1. Open `notebooks/GuardRAG_Training.ipynb` in Google Colab
 2. Enable GPU runtime (Runtime → Change runtime type → GPU)
 3. Follow the notebook to:
    - Generate IAO Super-Poison dataset (~Week 1)
@@ -249,7 +249,7 @@ tier2:
 
 ## 🆚 Comparison with RevPRAG
 
-| Feature | RevPRAG | PromptShiels |
+| Feature | RevPRAG | GuardRAG |
 |---------|---------|--------------|
 | Architecture | Single Layer | **Hybrid Tiered** |
 | Performance | High Latency | **Optimized** |
